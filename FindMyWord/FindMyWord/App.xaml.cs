@@ -1,28 +1,27 @@
-﻿using System;
+﻿
+using FindMyWord.ViewModels;
+using FindMyWord.Views;
+using Prism.DryIoc;
+using Prism.Ioc;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace FindMyWord
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-        public App()
+        protected override IContainerExtension CreateContainerExtension() => PrismContainerExtension.Current;
+
+        protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            await NavigationService.NavigateAsync("SearchPage");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
+            containerRegistry.RegisterForNavigation<SearchPage, SearchPageViewModel>();
         }
     }
 }
