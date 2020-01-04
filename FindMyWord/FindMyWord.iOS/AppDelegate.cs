@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Shiny;
 using UIKit;
 
 namespace FindMyWord.iOS
@@ -22,6 +23,8 @@ namespace FindMyWord.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            iOSShinyHost.Init(new ShinyAppStartup());
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
