@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Prism.DryIoc;
+using Shiny;
 using Shiny.Prism;
 
 namespace FindMyWord
@@ -13,7 +14,7 @@ namespace FindMyWord
 
         protected override void ConfigureServices(IServiceCollection services)
         {
-            //Enable your shiny services here
+            services.UseSpeechRecognition();
         }
     }
 }
