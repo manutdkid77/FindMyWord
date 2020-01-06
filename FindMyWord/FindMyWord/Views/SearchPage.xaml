@@ -5,6 +5,9 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="FindMyWord.Views.SearchPage">
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Label Text="Hello" TextColor="Black"></Label>
+
+        <Button Text="Listen" Command="{Binding ListenCommand}"></Button>
+
+        <Label Text="{Binding ListenedText}"></Label>
     </StackLayout>
 </ContentPage>
